@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { GiTomato } from "react-icons/gi";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Button } from "./Button";
-import './Navbar.css';
-
+import "./Navbar.css";
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -25,51 +24,64 @@ function Navbar() {
     showButton();
   }, []);
 
-  window.addEventListener('resize', showButton);
+  window.addEventListener("resize", showButton);
 
   return (
     <>
-      <div className="navbar">
-        <div className="navbar-container container">
-          <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-            <GiTomato className="navbar-icon" />
-            TOMATIMER
-          </Link>
-          <div className="menu-icon" onClick={handleClick}>
-            {click ? <FaTimes /> : <FaBars />}
+        <div className="navbar">
+          <div className="navbar-container container">
+            <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+              <GiTomato  className="navbar-icon" />
+              TOMATIMER
+            </Link>
+            <div className="menu-icon" onClick={handleClick}>
+              {click ? <FaTimes /> : <FaBars />}
+            </div>
+            <ul className={click ? "nav-menu active" : "nav-menu"}>
+              <li className="nav-item">
+                <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to="/services"
+                  className="nav-links"
+                  onClick={closeMobileMenu}
+                >
+                  Services
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to="/programs"
+                  className="nav-links"
+                  onClick={closeMobileMenu}
+                >
+                  Programs
+                </Link>
+              </li>
+              <li className="nav-btn">
+                {button ? (
+                  <Link to="/sign-up" className="btn-link">
+                    <Button buttonStyle="btn--outline">SIGN UP</Button>
+                  </Link>
+                ) : (
+                  <Link
+                    to="/sign-up"
+                    className="btn-link"
+                    onClick={closeMobileMenu}
+                  >
+                    <Button buttonStyle="btn--outline" buttonSize="btn--mobile">
+                      SIGN UP
+                    </Button>
+                  </Link>
+                )}
+              </li>
+            </ul>
           </div>
-          <ul className={click ? "nav-menu active" : "nav-menu"}>
-            <li className="nav-item">
-              <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-                Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/services" className="nav-links" onClick={closeMobileMenu}>
-                Services
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/programs" className="nav-links" onClick={closeMobileMenu}>
-                Programs
-              </Link>
-            </li>
-            <li className="nav-btn">
-              {button ? (
-                <Link to="/sign-up" className="btn-link">
-                  <Button buttonStyle="btn--outline">SIGN UP</Button>
-                </Link>
-              ) : (
-                <Link to='/sign-up' className="btn-link" onClick={closeMobileMenu}>
-                  <Button buttonStyle="btn--outline" buttonSize="btn--mobile">
-                    SIGN UP
-                  </Button>
-                </Link>
-              )}
-            </li>
-          </ul>
         </div>
-      </div>
+
     </>
   );
 }
