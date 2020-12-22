@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { GiTomato } from "react-icons/gi";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Button } from "./Button";
+//import AuthOptions from "./pages/Auth/AuthOptions";
+
 import "./Navbar.css";
 
 function Navbar() {
@@ -60,6 +62,23 @@ function Navbar() {
                 >
                   Programs
                 </Link>
+              </li>
+              <li className="nav-btn">
+                {button ? (
+                  <Link to="/sign-in" className="btn-link">
+                    <Button buttonStyle="btn--outline2">SIGN IN</Button>
+                  </Link>
+                ) : (
+                  <Link
+                    to="/sign-in"
+                    className="btn-link"
+                    onClick={closeMobileMenu}
+                  >
+                    <Button buttonStyle="btn--outline2" buttonSize="btn--mobile">
+                      SIGN IN
+                    </Button>
+                  </Link>
+                )}
               </li>
               <li className="nav-btn">
                 {button ? (
