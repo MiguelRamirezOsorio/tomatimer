@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/pages/HomePage/Home";
 import Services from "./components/pages/Services/Services";
 import Programs from "./components/pages/Programs/Programs";
-import SignIn from "./components/pages/Auth/SignIn";
+import SignIn from "./components/pages/SignIn/SignIn";
 import SignUp from "./components/pages/Auth/SignUp";
 import Footer from "./components/pages/Footer/Footer";
 import UserContext from "./context/UserContext";
